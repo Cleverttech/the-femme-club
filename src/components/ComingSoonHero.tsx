@@ -1,212 +1,409 @@
+
 import {
   Box,
   Button,
   Container,
   Divider,
-  IconButton,
+  Link,
   Stack,
   Typography,
 } from '@mui/material';
-import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
-import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
-const contactEmail = 'thefemmeclub.cy@gmail.com';
-const mailtoHref = `mailto:${contactEmail}?subject=${encodeURIComponent('Hello The Femme Club')}`;
+import {
+  ArrowOutward,
+  FavoriteBorder,
+  MailOutlined,
+} from '@mui/icons-material';
+
+import { brandColors } from '../theme';
+
+const CONTACT_EMAIL = 'thefemmeclub.cy@gmail.com';
+const LOGO_PATH = '/femme-club-logo.png';
 
 export default function ComingSoonHero() {
   return (
     <Box
       component="main"
-      id="top"
+      id="main"
       sx={{
         minHeight: '100svh',
-        bgcolor: 'background.default',
-        display: 'flex',
-        flexDirection: 'column',
-        overflowX: 'hidden',
+        bgcolor: brandColors.cream,
       }}
     >
-      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 4, md: 6 } }}>
+      <Container maxWidth="xl" disableGutters>
+
+        {/* Header */}
         <Box
           component="header"
           sx={{
-            minHeight: { xs: 76, sm: 98 },
-            py: 1.5,
+            px: { xs: 2.5, md: 5 },
+            py: 2.5,
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'space-between',
-            gap: 2,
+            alignItems: 'center',
           }}
         >
           <Typography
             component="a"
-            href="#top"
+            href="#main"
             sx={{
-              fontSize: { xs: 11, sm: 13 },
-              fontWeight: 700,
-              letterSpacing: { xs: '0.16em', sm: '0.24em' },
-              color: 'text.primary',
               textDecoration: 'none',
+              color: brandColors.brown,
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.2em',
             }}
           >
             THE FEMME CLUB
           </Typography>
-          <IconButton
-            component="a"
-            href="#top"
-            aria-label="The Femme Club — back to top"
-            sx={{ p: 0.5, '&:hover': { bgcolor: 'rgba(180,135,128,0.12)' } }}
-          >
-            <Box
-              component="img"
-              src="/femme-club-logo.png"
-              alt=""
-              sx={{ width: { xs: 46, sm: 62 }, height: { xs: 46, sm: 62 }, objectFit: 'contain' }}
-            />
-          </IconButton>
-        </Box>
-      </Container>
 
-      <Container
-        maxWidth="xl"
-        sx={{ px: { xs: 1.5, sm: 4, md: 6 }, pb: { xs: 2, md: 3 }, display: 'flex', flex: 1 }}
-      >
+          <Box
+            component="img"
+            src={LOGO_PATH}
+            alt="The Femme Club logo"
+            sx={{
+              width: { xs: 50, md: 65 },
+              height: { xs: 50, md: 65 },
+              objectFit: 'contain',
+            }}
+          />
+        </Box>
+
+        {/* Hero */}
         <Box
           component="section"
-          aria-labelledby="hero-title"
           sx={{
+            mx: { xs: 1.5, md: 3 },
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: '1.05fr 0.95fr' },
-            width: '100%',
-            bgcolor: 'background.paper',
-            borderRadius: { xs: '14px', md: '18px 72px 18px 18px' },
+            gridTemplateColumns: {
+              xs: '1fr',
+              md: '1fr 1fr',
+            },
+            bgcolor: brandColors.white,
             overflow: 'hidden',
-            boxShadow: '0 20px 65px rgba(79,54,49,0.055)',
+            borderRadius: {
+              xs: '20px',
+              md: '28px 72px 20px 20px',
+            },
           }}
         >
+
+          {/* Left side */}
           <Stack
-            spacing={0}
-            justifyContent="center"
-            alignItems="flex-start"
+            spacing={4}
             sx={{
-              px: { xs: 3.5, sm: 7, md: 7, lg: 11 },
-              py: { xs: 7, sm: 9, md: 10 },
+              px: {
+                xs: 3.5,
+                sm: 6,
+                md: 7,
+                lg: 10,
+              },
+              py: {
+                xs: 7,
+                md: 10,
+              },
+              justifyContent: 'center',
               minWidth: 0,
             }}
           >
             <Typography
-              variant="overline"
               sx={{
-                color: 'secondary.main',
-                fontSize: { xs: 10, sm: 11 },
-                letterSpacing: '0.25em',
+                color: brandColors.roseDeep,
                 fontWeight: 700,
-                mb: { xs: 3, md: 4 },
+                fontSize: '0.72rem',
+                letterSpacing: '0.22em',
               }}
             >
               OUR NEW DIGITAL HOME
             </Typography>
 
             <Typography
-              id="hero-title"
               component="h1"
               variant="h1"
               sx={{
+                fontSize: {
+                  xs: 'clamp(3.8rem, 13vw, 5.4rem)',
+                  sm: '6rem',
+                  md: 'clamp(5rem, 7vw, 8rem)',
+                },
+                color: brandColors.brown,
                 m: 0,
-                fontSize: { xs: 'clamp(3.7rem, 12vw, 5.3rem)', sm: '6.5rem', md: 'clamp(4.6rem, 6.5vw, 7.4rem)' },
-                lineHeight: 0.97,
-                letterSpacing: '-0.065em',
-                maxWidth: 720,
               }}
             >
-              Something
+              Coming
               <br />
-              <Box component="span" sx={{ color: 'secondary.main' }}>beautiful</Box>
-              <br />
-              is coming.
+              <Box
+                component="span"
+                sx={{
+                  color: brandColors.roseDeep,
+                }}
+              >
+                Soon.
+              </Box>
             </Typography>
 
-            <Typography sx={{ mt: { xs: 3, md: 5 }, fontSize: { xs: 17, md: 20 }, fontWeight: 600 }}>
-              A space to move, connect and belong.
-            </Typography>
-            <Typography sx={{ mt: 1.75, color: 'text.secondary', fontSize: { xs: 14, md: 16 }, lineHeight: 1.85, maxWidth: 430 }}>
-              The Femme Club brings women together through dance, events and beautiful shared experiences.
-              A new chapter is on its way.
-            </Typography>
+            <Stack spacing={2}>
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: '1.15rem',
+                    md: '1.3rem',
+                  },
+                  fontWeight: 600,
+                  color: brandColors.brown,
+                }}
+              >
+                A space to move, connect and belong.
+              </Typography>
 
-            <Button
-              variant="contained"
-              size="large"
-              href={mailtoHref}
-              endIcon={<ArrowOutwardRoundedIcon fontSize="small" />}
-              sx={{ mt: 4.5, px: 3.5, py: 1.75, minWidth: 192, justifyContent: 'space-between', '&:hover': { bgcolor: '#806059' } }}
-            >
-              Get in touch
-            </Button>
+              <Typography
+                sx={{
+                  color: brandColors.brownLight,
+                  fontSize: {
+                    xs: '0.95rem',
+                    md: '1rem',
+                  },
+                  lineHeight: 1.9,
+                  maxWidth: 460,
+                }}
+              >
+                The Femme Club brings women together
+                through dance, events and beautiful
+                shared experiences.
+                A new chapter is on its way.
+              </Typography>
+            </Stack>
+
+            <Box>
+              <Button
+                variant="contained"
+                color="primary"
+                endIcon={<ArrowOutward />}
+                href={`mailto:${CONTACT_EMAIL}`}
+                sx={{
+                  px: 4,
+                  py: 1.8,
+                  fontSize: '0.9rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.045em',
+                }}
+              >
+                Get in touch
+              </Button>
+            </Box>
 
             <Typography
-              sx={{ mt: { xs: 5, md: 7 }, fontSize: { xs: 10, sm: 11 }, letterSpacing: '0.11em', lineHeight: 1.9, color: 'text.secondary', fontWeight: 700 }}
+              sx={{
+                color: brandColors.roseDeep,
+                fontWeight: 600,
+                fontSize: '0.72rem',
+                letterSpacing: '0.1em',
+                pt: 3,
+                lineHeight: 2,
+              }}
             >
               Girlhood · Dance · Events · Community.
             </Typography>
           </Stack>
 
+          {/* Right side */}
           <Box
-            aria-label="The Femme Club original brand logo"
             sx={{
               position: 'relative',
-              minHeight: { xs: 400, sm: 530, md: 660 },
-              display: 'grid',
-              placeItems: 'center',
-              px: { xs: 3, sm: 5 },
-              py: { xs: 7, md: 9 },
-              background: 'radial-gradient(circle at 60% 38%, #F5E6DE 0%, transparent 52%), linear-gradient(150deg, #E9CFC4 0%, #D6B3A6 100%)',
-              isolation: 'isolate',
+              minHeight: {
+                xs: 440,
+                md: 700,
+              },
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              overflow: 'hidden',
+              background: `
+                linear-gradient(
+                  145deg,
+                  ${brandColors.roseLight} 0%,
+                  #D7B5A8 100%
+                )
+              `,
             }}
           >
+            {/* Decorative frame */}
             <Box
               aria-hidden="true"
-              sx={{ position: 'absolute', inset: { xs: 15, md: 28 }, border: '1px solid rgba(255,250,247,0.76)', borderRadius: { xs: '8px', md: '8px 50px 8px 8px' }, pointerEvents: 'none' }}
+              sx={{
+                position: 'absolute',
+                inset: {
+                  xs: 15,
+                  md: 30,
+                },
+                border: '1px solid rgba(255,255,255,0.7)',
+                borderRadius: {
+                  xs: '18px',
+                  md: '28px',
+                },
+              }}
             />
-            <Stack alignItems="center" spacing={{ xs: 3.5, md: 5 }} sx={{ position: 'relative', zIndex: 1, width: '100%' }}>
-              <Typography sx={{ color: '#86665F', fontSize: { xs: 10, sm: 11 }, letterSpacing: '0.2em', fontWeight: 700, textAlign: 'center' }}>
+
+            <Stack
+              spacing={4}
+              sx={{
+                position: 'relative',
+                zIndex: 1,
+                px: 4,
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: {
+                    xs: '0.65rem',
+                    md: '0.7rem',
+                  },
+                  fontWeight: 700,
+                  letterSpacing: '0.2em',
+                  color: brandColors.roseDeep,
+                  textAlign: 'center',
+                }}
+              >
                 WELCOME TO YOUR NEXT CHAPTER
               </Typography>
+
               <Box
                 component="img"
-                src="/femme-club-logo.png"
-                alt="The Femme Club logo"
-                sx={{ width: 'min(100%, 410px)', maxHeight: { xs: 290, sm: 370, md: 430 }, height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 18px 26px rgba(98,63,57,0.08))' }}
+                src={LOGO_PATH}
+                alt="The Femme Club"
+                sx={{
+                  width: '100%',
+                  maxWidth: {
+                    xs: 300,
+                    md: 430,
+                  },
+                  height: 'auto',
+                  objectFit: 'contain',
+                }}
               />
-              <Typography sx={{ color: '#86665F', fontSize: { xs: 10, sm: 11 }, letterSpacing: '0.14em', fontWeight: 700, textAlign: 'center' }}>
+
+              <Typography
+                sx={{
+                  color: brandColors.roseDeep,
+                  fontSize: '0.7rem',
+                  letterSpacing: '0.16em',
+                  fontWeight: 700,
+                  textAlign: 'center',
+                }}
+              >
                 A LITTLE HOME AWAY FROM HOME
               </Typography>
             </Stack>
-            <Typography sx={{ position: 'absolute', bottom: { xs: 27, md: 47 }, left: { xs: 32, md: 48 }, color: '#86665F', fontSize: 10, letterSpacing: '0.14em', fontWeight: 700 }}>
+
+            <Typography
+              sx={{
+                position: 'absolute',
+                bottom: 42,
+                left: 48,
+                color: brandColors.roseDeep,
+                fontSize: '0.65rem',
+                letterSpacing: '0.15em',
+                fontWeight: 700,
+              }}
+            >
               EST. IN COMMUNITY
             </Typography>
           </Box>
         </Box>
-      </Container>
 
-      <Container maxWidth="xl" sx={{ px: { xs: 3, sm: 4, md: 6 } }}>
+        {/* Footer */}
         <Box
           component="footer"
-          sx={{ py: 3, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: { xs: 2, md: 3 }, flexDirection: { xs: 'column', md: 'row' } }}
+          sx={{
+            px: { xs: 3, md: 6 },
+            py: 4,
+          }}
         >
-          <Typography sx={{ fontSize: 11, color: 'text.secondary', letterSpacing: '0.08em' }}>
-            © {new Date().getFullYear()} THE FEMME CLUB
-          </Typography>
-          <Stack direction="row" alignItems="center" spacing={1}>
-            <MailOutlineRoundedIcon sx={{ fontSize: 17, color: 'secondary.main' }} aria-hidden="true" />
-            <Typography component="a" href={`mailto:${contactEmail}`} sx={{ fontSize: 12, color: 'text.secondary', textDecoration: 'none', overflowWrap: 'anywhere', '&:hover': { textDecoration: 'underline' } }}>
-              {contactEmail}
+          <Stack
+            spacing={2.5}
+            sx={{ alignItems: 'center' }}
+          >
+            <Stack
+              direction={{
+                xs: 'column',
+                md: 'row',
+              }}
+              spacing={2}
+              sx={{
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Typography
+                variant="caption"
+                sx={{ color: brandColors.brownLight }}
+              >
+                © {new Date().getFullYear()} THE FEMME CLUB
+              </Typography>
+
+              <Link
+                href={`mailto:${CONTACT_EMAIL}`}
+                underline="hover"
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  color: brandColors.brownLight,
+                  fontSize: '0.8rem',
+                }}
+              >
+                <MailOutlined fontSize="small" />
+                {CONTACT_EMAIL}
+              </Link>
+
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{ alignItems: 'center' }}
+              >
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: brandColors.brownLight,
+                  }}
+                >
+                  MADE FOR CONNECTION
+                </Typography>
+
+                <FavoriteBorder
+                  sx={{
+                    color: brandColors.roseDeep,
+                    fontSize: 18,
+                  }}
+                />
+              </Stack>
+            </Stack>
+
+            <Divider sx={{ width: '100%' }} />
+
+            <Typography
+              variant="caption"
+              sx={{
+                textAlign: 'center',
+                fontSize: '0.78rem',
+                color: brandColors.brownLight,
+              }}
+            >
+              Designed & Developed by{' '}
+              <Box
+                component="span"
+                sx={{
+                  color: brandColors.roseDeep,
+                  fontWeight: 700,
+                }}
+              >
+                Sorachat studios
+              </Box>
             </Typography>
-          </Stack>
-          <Stack direction="row" alignItems="center" spacing={0.75}>
-            <PlaceOutlinedIcon sx={{ fontSize: 17, color: 'secondary.main' }} aria-hidden="true" />
-            <Typography sx={{ fontSize: 11, color: 'text.secondary', letterSpacing: '0.06em' }}>PAPHOS, CYPRUS</Typography>
           </Stack>
         </Box>
       </Container>
