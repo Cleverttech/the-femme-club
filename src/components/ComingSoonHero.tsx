@@ -386,6 +386,31 @@ export default function ComingSoonHero() {
             <Divider sx={{ width: '100%' }} />
 
             <Typography
+              component="p"
+              sx={{
+                mt: 2,
+                mb: 1,
+                width: '100%',
+                textAlign: 'center',
+                fontFamily: '"DM Sans", sans-serif',
+                fontSize: { xs: '0.8rem', md: '0.85rem' },
+                color: brandColors.brownLight,
+              }}
+            >
+              Designed & Created by{' '}
+              <Box
+                component="span"
+                sx={{
+                  color: brandColors.brown,
+                  fontWeight: 700,
+                }}
+              >
+                Sorachat studios
+              </Box>
+            </Typography>
+
+
+            <Typography
               variant="caption"
               sx={{
                 textAlign: 'center',
