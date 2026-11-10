@@ -32,8 +32,3 @@ Thumbs.db
 
 # Vercel
 .vercel/
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
