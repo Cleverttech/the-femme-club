@@ -66,9 +66,6 @@ export default function ComingSoonHero() {
           <div className="visual-border" aria-hidden="true" />
           <div className="visual-glow" aria-hidden="true" />
 
-          <div className="flower flower-one" aria-hidden="true">✳</div>
-          <div className="flower flower-two" aria-hidden="true">✳</div>
-
           <div className="visual-content">
             <span className="visual-overline">
               WELCOME TO YOUR NEXT CHAPTER
