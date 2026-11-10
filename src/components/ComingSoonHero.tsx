@@ -408,27 +408,6 @@ export default function ComingSoonHero() {
                 Sorachat studios
               </Box>
             </Typography>
-
-
-            <Typography
-              variant="caption"
-              sx={{
-                textAlign: 'center',
-                fontSize: '0.78rem',
-                color: brandColors.brownLight,
-              }}
-            >
-              Designed & Developed by{' '}
-              <Box
-                component="span"
-                sx={{
-                  color: brandColors.roseDeep,
-                  fontWeight: 700,
-                }}
-              >
-                Sorachat studios
-              </Box>
-            </Typography>
           </Stack>
         </Box>
       </Container>
